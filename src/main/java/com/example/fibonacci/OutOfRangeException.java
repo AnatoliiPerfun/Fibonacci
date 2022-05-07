@@ -1,2 +1,4 @@
-package com.example.fibonacci;public class OutOfRangeException {
+package com.example.fibonacci;
+
+public class OutOfRangeException extends Exception {
 }
