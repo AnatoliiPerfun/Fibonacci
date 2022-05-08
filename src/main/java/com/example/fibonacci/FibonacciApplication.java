@@ -59,6 +59,23 @@ public class FibonacciApplication {
         }
         return ResponseEntity.ok(sequence);
    }
+
+   @GetMapping("findRatio")
+   public ResponseEntity<String> getRatio(@RequestParam int n) throws FibonacciOutOfRangeException {
+        int dividend = fibonacci(n);
+        int divisor = fibonacci(n-1);
+        if (divisor == 0) {
+            return ResponseEntity.ok("0");
+        }
+        int result;
+        try {
+            result = dividend / divisor;
+        } catch (ArithmeticException e) {
+            return ResponseEntity.ok("0");
+        }
+        return ResponseEntity.ok(String.valueOf(result));
+   }
+
    private String getSequenceByFilename(String filename) throws FileNotFoundException {
        BufferedReader reader = new BufferedReader(new FileReader(filename));
        return reader.lines().collect(Collectors.joining());
@@ -101,7 +118,7 @@ public class FibonacciApplication {
             return position;
         }
         if (position >= 8) {
-            throw new FibonacciOutOfRangeException(String.format("Request position %s is too large.", ""));
+            throw new FibonacciOutOfRangeException(String.format("Request position %s is too large.", "" ));
         }
         return fibonacci(position -1) + fibonacci(position -2);
     }
