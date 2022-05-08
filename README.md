@@ -2,4 +2,5 @@
 ## JAVA exceptions handling 
 Checked (compile-time)
 Unchecked (runtime)
-## test run with Postman localhost
+## Postman
+get post localhost run test
