@@ -3,4 +3,4 @@
 Checked (compile-time)
 Unchecked (runtime)
 ## Postman
-get post localhost run test
+Get/Post localhost run test
